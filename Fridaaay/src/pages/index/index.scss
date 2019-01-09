@@ -1,0 +1,116 @@
+page {
+    background-color: #fff;
+    font-family: "HiraMinProN-W6";
+}
+
+@mixin rounded($amount) {
+    -moz-border-radius: $amount;
+    -webkit-border-radius: $amount;
+    border-radius: $amount;
+}
+
+.container {
+    padding: 20rpx;
+    height: 100%;
+}
+
+.container .week {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container .topic {
+    display: flex;
+    flex-direction: column;
+    font-family: "HiraMinProN-W3";
+    font-size: 28rpx;
+    padding: 20rpx 40rpx;
+}
+
+.week .week-all {
+    background-color: #eff6f4;
+    padding: 20rpx 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20rpx;
+    @include rounded(30rpx);
+
+    .friday {
+        .question {
+            font-size: 30rpx;
+        }
+
+        background-color: #fff;
+        padding: 10rpx 30rpx;
+        @include rounded(36rpx);
+    }
+
+    .answer-box {
+        display: flex;
+        justify-content: center;
+        margin-top: 10rpx;
+        .answer {
+            font-size: 100rpx;
+        }
+    }
+}
+
+.week .week-box {
+    display: flex;
+    flex-direction: column;
+    
+    .wd {
+        display: flex;
+        flex-direction: row;
+
+        .week-week {
+            font-size: 30rpx;
+        }
+
+        .week-day {
+            margin-left: 10rpx;
+            margin-top: 12rpx;
+            font-size: 12rpx;
+            color: #4b635e;
+        }
+    }
+
+    .glass {
+        margin-top: 20rpx;
+        display: flex;
+        justify-content:center;
+
+        .gogo {
+            height: 180rpx;
+            width: 120rpx;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            background-color: #8088de;
+            @include rounded(10rpx);
+
+            .fofo {
+                margin: 0 auto;
+            }
+        }        
+    }
+}
+
+.topic .content {
+    margin: 10rpx 0;
+}
+
+.topic .author {
+    text-align: right;
+    font-size: 24rpx;
+}
+
+.container .powered {
+    font-size: 16rpx;
+    color: #8088de;
+    position: absolute;
+    bottom: 20rpx;
+}
