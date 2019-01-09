@@ -43,7 +43,7 @@ export default class Index extends Component {
     })
   }
 
-  componentWillMount () { 
+  componentWillMount () {
     this.fetchJikeTopic()
   }
 
@@ -64,13 +64,13 @@ export default class Index extends Component {
     })
     .then(res => {
       let result = res.data.data
-  
+
       let contentIndex = Math.floor(Math.random()*result.length)
       let topic = "—— " + result[contentIndex].topic.content
       let content = result[contentIndex].content
       let picture = result[contentIndex].pictures.length > 0 ? result[contentIndex].pictures[0].smallPicUrl : ""
       let user = result[contentIndex].user.screenName
-      
+
       if (content === "") {
         return
       }
@@ -82,6 +82,13 @@ export default class Index extends Component {
         topiocUser: user
       })
     })
+  }
+
+  onShareAppMessage() {
+    return {
+      title: "今儿周五吗",
+      path: "pages/index/index"
+    }
   }
 
   render () {
