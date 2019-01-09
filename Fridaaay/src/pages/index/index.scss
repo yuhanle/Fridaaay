@@ -23,7 +23,7 @@ page {
 .container .topic {
     display: flex;
     flex-direction: column;
-    font-family: "HiraMinProN-W3";
+    font-family: PingFangSC-Regular;
     font-size: 28rpx;
     padding: 20rpx 40rpx;
 }
@@ -109,6 +109,7 @@ page {
 }
 
 .container .powered {
+    display: none;
     font-size: 16rpx;
     color: #8088de;
     position: absolute;
