@@ -11,8 +11,8 @@ const DATE_STRING = `${MONTH}月\n${DATE}日`
 
 const animationData = Taro.createAnimation({
   transformOrigin: "50% 50%",
-  duration: 1000,
-  timingFunction: "ease",
+  duration: 0.3,
+  timingFunction: "linear",
   delay: 0
 })
 
@@ -74,13 +74,25 @@ export default class Index extends Component {
       if (content === "") {
         return
       }
-
+      
       that.setState({
         topicContent: content,
         topicAuthor: topic,
         topicPicture: picture,
-        topiocUser: user
+        topiocUser: user,
       })
+
+      animationData.opacity(0.6).step()
+      that.setState({
+        animation: animationData.export()
+      })
+
+      setTimeout(function() {
+        animationData.opacity(1.0).step()
+        that.setState({
+          animation: animationData.export()
+        })
+      }.bind(that), 0.6);
     })
   }
 
@@ -115,7 +127,7 @@ export default class Index extends Component {
             </View>
           </View>
         </View>
-        <View animation="{{animationData}}" className="topic" onClick={this.fetchJikeTopic}>
+        <View animation="{{animation}}" className="topic" onClick={this.fetchJikeTopic}>
           <Text className="content">{topicContent}</Text>
           <Text className="author">{topicAuthor}</Text>
         </View>
